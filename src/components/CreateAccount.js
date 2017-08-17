@@ -8,49 +8,47 @@ import TextAreaField from "../shared/formElements/TextAreaField";
 import Header from "../layout/Header";
 
 export default class CreateAccount extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+       questionBlocks:[
+          {
+             id:'accountinfo',
+             data:{
+               username:'',
+               password:'',
+               confirmPassword:'',
+               terms:'',
+             }
+           },{
+             id:'basicInfo',
+             data:{
+               title:'',
+               firstName:'',
+               lastName:'',
+               suffix:'',
+             }
+           },{
+             id:'professionalInfo',
+             data:{
+               occupation:'',
+               organization:'',
+               jobTitle:'',
+               phone:'',
+             }
+           }
+       ]
+     }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(propertyName, event) {
+    const userInfo = this.state;
+    userInfo[propertyName] = event.target.value;
+    this.setState({ userInfo });
+  }
 
   render() {
-    var accountInfo = [{
-      label: "Primary Email/Username",
-      placeholder: "georgefreeny@gmail.com"
-    },{
-      label: "Password",
-      placeholder: "*******"
-    },{
-      label: "Confirm Password",
-      placeholder: "*******"
-    }];
-    var basicInfo = [{
-      label: "Title",
-      placeholder: ""
-    },{
-      label: "First Name",
-      placeholder: ""
-    },{
-      label: "Last Name",
-      placeholder: ""
-    },{
-      label: "Suffix",
-      placeholder: ""
-    }];
-    var professionalInfo = [{
-      label: "Occupation",
-      placeholder: ""
-    },{
-      label: "Organization",
-      placeholder: ""
-    },{
-      label: "Job Title",
-      placeholder: ""
-    },{
-      label: "Phone Number",
-      placeholder: ""
-    }];
-    var checkboxes = [{
-      label: "Terms of Use",
-      checkboxLabel: "I agree to the Terms of Use"
-    }];
-
     return (
       <div>
         <Header/>
@@ -68,20 +66,105 @@ export default class CreateAccount extends React.Component {
                         <form role="form" className="login-form">
                           <div className="forms-container-border">
                             <h5 className="lsn-question-block-heading">Account Information</h5>
-                            {accountInfo.map((input, index) => (
-                              <InputField fieldNames={input} key={index}/>
-                            ))}
-                            {checkboxes.map((checkbox, index) => (
-                              <CheckboxField fieldNames={checkbox} key={index}/>
-                            ))}
+                              <InputField
+                                inputType={'text'}
+                                title={'Username'}
+                                name={'name'}
+                                controlFunc={this.handleChange.bind(this, 'username')}
+                                content={this.state.ownerName}
+                                placeholder={'georgefreeny@gmail.com'}
+                                required={true}/>
+
+                              <InputField
+                      					inputType={'password'}
+                      					title={'Password'}
+                      					name={'password'}
+                      					controlFunc={this.handleChange.bind(this, 'password')}
+                      					content={this.state.ownerName}
+                      					placeholder={'*******'}
+                                required={true}/>
+
+                              <InputField
+                      					inputType={'password'}
+                      					title={'Confirm Password'}
+                      					name={'confirmPassword'}
+                      					controlFunc={this.handleChange.bind(this, 'confirmPassword')}
+                      					content={this.state.ownerName}
+                      					placeholder={'*******'}
+                                required={true}/>
+
+                              <CheckboxField
+                                title={'Terms of Use'}
+                                checkboxLabel={'I agree to the Terms of Use'}
+                                controlFunc={this.handleChange.bind(this, 'confirmPassword')}
+                                content={this.state.ownerName}
+                                required={true}
+                                />
                             <h5 className="lsn-question-block-heading">Basic Information</h5>
-                              {basicInfo.map((input, index) => (
-                                <InputField fieldNames={input} key={index}/>
-                              ))}
-                              <h5 className="lsn-question-block-heading">Professional Information</h5>
-                                {professionalInfo.map((input, index) => (
-                                  <InputField fieldNames={input} key={index}/>
-                                ))}
+                              <InputField
+                                inputType={'text'}
+                                title={'Username'}
+                                name={'name'}
+                                controlFunc={this.handleChange.bind(this, 'username')}
+                                content={this.state.ownerName}
+                                placeholder={'georgefreeny@gmail.com'}
+                                required={true}/>
+
+                              <InputField
+                                inputType={'text'}
+                                title={'First Name'}
+                                name={'firstName'}
+                                controlFunc={this.handleChange.bind(this, 'firstName')}
+                                content={this.state.firstName}
+                                placeholder={'George'}
+                                required={true}/>
+
+                                <InputField
+                                  inputType={'text'}
+                                  title={'Last Name'}
+                                  name={'lastName'}
+                                  controlFunc={this.handleChange.bind(this, 'lastName')}
+                                  content={this.state.lastName}
+                                  placeholder={'Freeny'}
+                                  required={true}/>
+
+                                <InputField
+                                  inputType={'text'}
+                                  title={'Suffix'}
+                                  name={'suffix'}
+                                  controlFunc={this.handleChange.bind(this, 'suffix')}
+                                  content={this.state.suffix}
+                                  placeholder={'Mr.'}
+                                  required={true}/>
+
+                            <h5 className="lsn-question-block-heading">Professional Information</h5>
+                              <InputField
+                                inputType={'text'}
+                                title={'Occupation'}
+                                name={'occupation'}
+                                controlFunc={this.handleChange.bind(this, 'occupation')}
+                                content={this.state.occupation}
+                                placeholder={'Software Engineer'}
+                                required={true}/>
+
+                              <InputField
+                                inputType={'text'}
+                                title={'Organization'}
+                                name={'organization'}
+                                controlFunc={this.handleChange.bind(this, 'organization')}
+                                content={this.state.organization}
+                                placeholder={'Liaison'}
+                                required={true}/>
+
+                              <InputField
+                                inputType={'text'}
+                                title={'Job Title'}
+                                name={'jobTitle'}
+                                controlFunc={this.handleChange.bind(this, 'jobTitle')}
+                                content={this.state.suffix}
+                                placeholder={''}
+                                required={true}/>
+
                             <DropdownField />
                               <button type="submit" className="lsn-primary-button lsn-medium-button">Create Account</button>
                           </div>

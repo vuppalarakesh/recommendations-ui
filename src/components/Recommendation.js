@@ -2,6 +2,7 @@ import React from "react";
 
 import InputField from "../shared/formElements/InputField";
 import '../styles/dashboard.less'
+import Header from "../layout/Header";
 
 export default class Login extends React.Component {
 
@@ -15,6 +16,8 @@ export default class Login extends React.Component {
       placeholder: "*******"
     }];
     return (
+      <div>
+      <Header/>
       <div className="forms-container column col-12 col-sm-12">
         <div id="sidebar" className="docs-sidebar column col-3 col-sm-12">
           <ul className="docs-nav nav nav-vertical">
@@ -37,6 +40,7 @@ export default class Login extends React.Component {
           </section>
         </div>
       </div>
+    </div>
       );
   }
 }

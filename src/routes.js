@@ -5,15 +5,12 @@ import {
   Route,
   NavLink
 } from 'react-router-dom'
-import { Provider } from "react-redux"
 import './App.css';
 import '../node_modules/spectre.css/dist/spectre.css';
 //import Dashboard from "./co;mponents/Dashboard";
 import CreateAccount from "./components/CreateAccount";
 import Recommendation from "./components/Recommendation";
 import Login from "./components/Login";
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
 
 export const routes = (
   <div className="App">

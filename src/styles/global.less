@@ -45,6 +45,16 @@ input[type="radio"]{
   }
 }
 
+.lsn-input-error{
+  input{
+    margin: 6px 0px 4px 0px;
+  }
+  p{
+    text-align: left;
+    margin-bottom: 0px;
+  }
+}
+
 p{
   //font-family: 'Scala Comp', sans-serif;
   font-size: 13px;
@@ -123,6 +133,9 @@ footer {
   &:active {
     border: 3px solid #0096F5;
   }
+  &:disabled {
+    .lsn-disabled-button
+  }
 }
 
 .lsn-secondary-button{
@@ -142,5 +155,8 @@ footer {
   .lsn-button;
   background-color: @lsn-medium-gray;
   color: #ffffff;
-  border: 1px solid #0064A3;
+  border: 1px solid @lsn-medium-gray;
+  &:hover {
+    background-color: #F0F9FF;
+  }
 }

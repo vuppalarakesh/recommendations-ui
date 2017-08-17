@@ -21,17 +21,11 @@ export default class Header extends React.Component {
                 <section className="navbar-section">
                   <ul className="navbar-nav navbar-right">
                     <li className="nav-item active">
-                      <NavLink exact className="nav-link" to="/">Home</NavLink>
+                      <NavLink exact className="nav-link" to="/recommendation">Home</NavLink>
                     </li>
-                    <li className="nav-item active">
-                      <NavLink exact className="nav-link" to="/createAccount">Create Account</NavLink>
+                    <li className="nav-item navbar-right">
+                      <NavLink className="nav-link" to="/login">Logout</NavLink>
                     </li>
-                      <li className="nav-item navbar-right">
-                        <NavLink className="nav-link" to="/login">Log In</NavLink>
-                      </li>
-                      <li className="nav-item">
-                        <NavLink className="nav-link" to="/recommendation">Help</NavLink>
-                      </li>
                   </ul>
                 </section>
               </nav>
